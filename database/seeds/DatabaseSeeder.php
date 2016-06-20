@@ -49,6 +49,24 @@ class RolesTableSeeder extends Seeder
             ]
         );
 
+        DB::table('permissions')->delete();
+
+        DB::table('permissions')->insert(
+            [
+                ['name' => 'edit-picture', 'display_name' => 'Edit Picture', 'description' => 'edit existing pictures'],
+                ['name' => 'create-picture', 'display_name' => 'Create Picture', 'description' => 'create new pictures'],
+            ]
+        );
+
+        DB::table('permission_role')->delete();
+
+        DB::table('permission_role')->insert(
+            [
+                ['permission_id' => '1', 'role_id' => '2'],
+                ['permission_id' => '2', 'role_id' => '2']
+            ]
+        );
+
         DB::table('role_user')->delete();
 
         DB::table('role_user')->insert(

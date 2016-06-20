@@ -18,13 +18,17 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/quest/basic', 'HomeController@getQuestBasic');
+Route::get('/quest/iterator', 'HomeController@getQuestIterator');
 
-Route::group(['prefix' => 'home', 'middleware' => ['role:owner']], function() {
-    Route::get('/', 'PictureController@getPictures');
-    //Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
-});
+Route::group(['prefix' => 'picture'], function() {
+    Route::group(['middleware' => ['role:admin']], function() {
+        Route::get('/new', 'PictureController@getNewPicture');
+        Route::post('/', 'PictureController@postPicture');
+        Route::post('/{id}', 'PictureController@putPicture');
+        Route::delete('/{id}', 'PictureController@deletePicture');
+    });
 
-Route::group(['prefix' => 'dashboard', 'middleware' => ['role:admin']], function() {
-    Route::get('/', 'AdminController@welcome');
-    Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
+    Route::get('/', 'PictureController@getAll');
+    Route::get('/{id}', 'PictureController@getPicture');
 });

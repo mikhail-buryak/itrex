@@ -19,9 +19,9 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'pictures', 'middleware' => ['role:admin']], function() {
-    Route::get('/', 'AdminController@welcome');
-    Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
+Route::group(['prefix' => 'home', 'middleware' => ['role:owner']], function() {
+    Route::get('/', 'PictureController@getPictures');
+    //Route::get('/manage', ['middleware' => ['permission:manage-admins'], 'uses' => 'AdminController@manageAdmins']);
 });
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['role:admin']], function() {

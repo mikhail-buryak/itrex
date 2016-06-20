@@ -1,6 +1,6 @@
 ## Mikhail Buryak ##
 =================
-### [ITRex](http://itrexgroup.com/)Code Demonstration ###
+### [ITRex](http://itrexgroup.com/) Code Demonstration ###
 
 ### [Description of the test task](http://tasks.php.itrexgroup.com/php/junior.html) #1 [solution](app/Http/Controllers/PictureController.php)
 
@@ -55,9 +55,9 @@ Complexity (not required):
 
 Elements of input arrays can be modified.
 
-[routes](app/Http/routes.php)
-[migrations](database/migrations/routes.php)
-[seeds](database/seeds/databaseSeeder.php)
+#### [routes](app/Http/routes.php)
+#### [migrations](database/migrations/)
+#### [seeds](database/seeds/DatabaseSeeder.php)
 
 **Stack**
 

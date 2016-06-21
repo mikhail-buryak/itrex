@@ -72,7 +72,7 @@ class PictureController extends Controller
         $filename = str_random(32);
         $extension = $image->getClientOriginalExtension();
 
-        \File::MakeDirectory(public_path('assets/pictures'));
+        \File::MakeDirectory(public_path('assets/pictures'), 0775, true, true);
 
         $picture = new Picture();
         $picture->origin = 'assets/pictures/' . $filename . '.' . $extension;

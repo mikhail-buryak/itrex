@@ -56,9 +56,9 @@ $(function() {
             dataType: 'JSON',
             success: function(response) {
                 var items = '';
-                var location = window.location.href.slice(0,window.location.href.indexOf('\?')) + '/';
+                var loc = window.location.origin + window.location.pathname + '/';
                 for (var i = 0; i < response.data.length; i++) {
-                    items += '<div class="col-md-3"><a href="' + location + response.data[i].id +
+                    items += '<div class="col-md-3"><a href="' + loc + response.data[i].id +
                         '" class="thumbnail modal-action"><p class="text-center">' + response.data[i].title +
                         '</p><img src="' + response.data[i].min + '" alt="' + response.data[i].title + '"></a></div>';
                 };
